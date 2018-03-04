@@ -1,7 +1,6 @@
-package com.gitmad.buzzchat;
+package com.gitmad.buzzchat.dummy;
 
 import android.content.Context;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
@@ -11,15 +10,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.gitmad.buzzchat.dummy.DummyContent;
-import com.gitmad.buzzchat.dummy.DummyContent.DummyItem;
-
-import java.util.List;
+import com.gitmad.buzzchat.MessageFragment;
+import com.gitmad.buzzchat.R;
 
 /**
  * A fragment representing a list of Items.
  */
-public class MessageFragment extends Fragment {
+public class DummyFragment extends Fragment {
 
     // Customize parameter argument names
     private static final String ARG_COLUMN_COUNT = "column-count";
@@ -30,7 +27,7 @@ public class MessageFragment extends Fragment {
      * Mandatory empty constructor for the fragment manager to instantiate the
      * fragment (e.g. upon screen orientation changes).
      */
-    public MessageFragment() {
+    public DummyFragment() {
     }
 
     // Customize parameter initialization
@@ -57,6 +54,7 @@ public class MessageFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_message_list, container, false);
 
+        // Set the adapter
         if (view instanceof RecyclerView) {
             Context context = view.getContext();
             RecyclerView recyclerView = (RecyclerView) view;
@@ -65,11 +63,7 @@ public class MessageFragment extends Fragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            // TODO 13: Fill the messages list and set the recycler view's adapter to a
-            // new MessageRecyclerViewAdapter
-            Drawable image = getResources().getDrawable(R.drawable.default_user_image, null);
-            Messages.setDefaultMessages("Default", image);
-            recyclerView.setAdapter(new MessageRecyclerViewAdapter(Messages.ITEMS));
+            recyclerView.setAdapter(new DummyRecyclerViewAdapter(DummyContent.ITEMS));
         }
         return view;
     }
