@@ -1,14 +1,9 @@
 package com.gitmad.buzzchat;
 
 import android.graphics.drawable.Drawable;
-import android.widget.ImageView;
-
-import com.gitmad.buzzchat.dummy.DummyContent;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Created by Clayton on 3/2/2018.
@@ -16,7 +11,7 @@ import java.util.Map;
 public class Messages {
 
     /**
-     * TODO 8a: Create instance data for this class. We'll need 2 thiings
+     * TODO 8a: Create instance data for this class. We'll need 2 things
      * 1. A public list that will contain message items from #7
      * 2. An private int variable that specifies the size of the list.
      */
@@ -24,20 +19,24 @@ public class Messages {
 
     private static final int COUNT = 25;
 
+    public static void addMessageItem(String text, Drawable image) {
+        // TODO 8b: This method should add a single message item to your list
+        ITEMS.add(new MessageItem(text, image));
+    }
+
 
     public static void setDefaultMessages(String text, Drawable image) {
-        // TODO 8b: This method should fill in your list with message items
+        // TODO 8c: This method should fill in your list with message items
         for(int i = 0; i < COUNT ; i++) {
-            ITEMS.add(new MessageItem(text, image));
+            addMessageItem(text, image);
 
         }
     }
 
     public static void clearItems() {
-        // TODO 8c: This method should clear your list of message items
+        // TODO 8d: This method should clear your list of message items
         ITEMS.clear();
     }
-
 
     /*
      * TODO 7: Create a static inner class to represent a single message item. It needs to have

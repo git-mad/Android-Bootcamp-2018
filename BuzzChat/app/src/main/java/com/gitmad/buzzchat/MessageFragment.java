@@ -1,7 +1,6 @@
 package com.gitmad.buzzchat;
 
 import android.content.Context;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
@@ -10,11 +9,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
-import com.gitmad.buzzchat.dummy.DummyContent;
-import com.gitmad.buzzchat.dummy.DummyContent.DummyItem;
-
-import java.util.List;
 
 /**
  * A fragment representing a list of Items.
@@ -65,10 +59,17 @@ public class MessageFragment extends Fragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            // TODO 13: Fill the messages list and set the recycler view's adapter to a
-            // new MessageRecyclerViewAdapter
-            Drawable image = getResources().getDrawable(R.drawable.default_user_image, null);
-            Messages.setDefaultMessages("Default", image);
+            /*
+             *TODO 13: Fill the messages list and set the recycler view's adapter to a new
+             * MessageRecyclerViewAdapter.
+             *
+             * Hint: You can create a Drawable with getResources().getDrawable(...)
+             */
+
+            /*
+             * TODO 18: Remove the code the filled the message list here and keep the line that sets
+             * the adapter
+             */
             recyclerView.setAdapter(new MessageRecyclerViewAdapter(Messages.ITEMS));
         }
         return view;

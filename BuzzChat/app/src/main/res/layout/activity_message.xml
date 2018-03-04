@@ -6,20 +6,23 @@
     android:layout_height="match_parent"
     tools:context="com.gitmad.buzzchat.MessageActivity">
 
+    <!-- TODO 15b: Change this element's width and height to "match_constraint" (aka 0dp) -->
     <FrameLayout
         android:id="@+id/activity_message_fragment_frame"
-        android:layout_width="368dp"
-        android:layout_height="231dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
     </FrameLayout>
-
-    <TextView
+    <!-- TODO 15a: Remove this TextView so the list can take up the majority of the screen.. -->
+    <!--<TextView
         android:id="@+id/activity_message_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -27,12 +30,13 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent" /> -->
 
     <!-- TODO 1: Add a LinearLayout here with an EditText and Button as children. Don't forget to
      add constraints to the LinearLayout. It may be helpful to constrain it to the bottom of the screen.
       Run the app to make sure your layout appears correctly-->
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
