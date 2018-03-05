@@ -26,7 +26,7 @@ public class MessageActivity extends AppCompatActivity {
         // TODO 14: Set this to true and run the app to see your message items be displayed
         boolean todoComplete = true;
 
-        // TODO 6: if savedInstanceState is null, commit a fragment transaction to MessageFragment
+        // TODO 6: if savedInstanceState is null, commit a dummy fragment transaction to MessageFragment
         if (savedInstanceState == null) {
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
             Fragment fragment = new DummyFragment();
