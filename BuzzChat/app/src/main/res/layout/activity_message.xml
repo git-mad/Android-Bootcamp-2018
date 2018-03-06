@@ -9,13 +9,13 @@
     <!-- TODO 15b: Change this element's width and height to "match_constraint" (aka 0dp) -->
     <FrameLayout
         android:id="@+id/activity_message_fragment_frame"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -35,34 +35,37 @@
     <!-- TODO 1: Add a LinearLayout here with an EditText and Button as children. Don't forget to
      add constraints to the LinearLayout. It may be helpful to constrain it to the bottom of the screen.
       Run the app to make sure your layout appears correctly-->
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+    <!--<LinearLayout-->
+        <!--android:id="@+id/linearLayout"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginBottom="8dp"-->
+        <!--android:layout_marginEnd="8dp"-->
+        <!--android:layout_marginStart="8dp"-->
+        <!--android:orientation="horizontal"-->
+        <!--app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--app:layout_constraintEnd_toEndOf="parent"-->
+        <!--app:layout_constraintStart_toStartOf="parent">-->
 
-        <EditText
-            android:id="@+id/activity_message_textbox"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ems="10"
-            android:hint="Enter text"
-            android:inputType="textPersonName" />
+        <!--<EditText-->
+            <!--android:id="@+id/activity_message_textbox"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_weight="1"-->
+            <!--android:ems="10"-->
+            <!--android:hint="Enter text"-->
+            <!--android:inputType="textPersonName" />-->
 
-        <Button
-            android:id="@+id/activity_message_send_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Send" />
-    </LinearLayout>
+        <!--<Button-->
+            <!--android:id="@+id/activity_message_send_button"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_weight="1"-->
+            <!--android:text="Send" />-->
+    <!--</LinearLayout>-->
+
+    <!-- TODO 16a: Move the EditText and Button to fragment_message_list.xml then delete this LinearLayout -->
+
 
 
 
