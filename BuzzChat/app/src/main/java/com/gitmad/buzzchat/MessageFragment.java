@@ -14,6 +14,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 /**
  * A fragment representing a list of Items.
  */
@@ -27,6 +30,8 @@ public class MessageFragment extends Fragment {
     private EditText mTextBox;
     private Button mSendButton;
     private MessageRecyclerViewAdapter mAdapter;
+
+    private static final String MESSAGES_CHILD = "messages";
 
 
     /**

@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "1029941838836",
+    "firebase_url": "https://buzzchat-15332.firebaseio.com",
+    "project_id": "buzzchat-15332",
+    "storage_bucket": "buzzchat-15332.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1029941838836:android:e36d6baaa4f5ad5b",
+        "android_client_info": {
+          "package_name": "com.gitmad.buzzchat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1029941838836-ntk15o0urqbf3lkm9qf6fln5itueish9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAhxsU1mUtXwnMlOsgaq106c-nOJIOa_YU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
