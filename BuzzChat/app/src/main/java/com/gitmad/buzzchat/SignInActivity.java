@@ -37,14 +37,17 @@ public class SignInActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
 
-        /* TODO 18: Follow the tutorial here to implement a login with Google sign-in. Dependencies
+
+
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(getString(R.string.default_web_client_id))
+                .requestEmail()
+                .build();
+
+        /* TODO 18: Follow the tutorial here to finish the login with Google sign-in. Dependencies
          * are taken care of for you.
          * https://developers.google.com/identity/sign-in/android/sign-in
          */
-
-        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestEmail()
-                .build();
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
         mSignInButton = findViewById(R.id.sign_in_button);
         mSignInButton.setOnClickListener(new View.OnClickListener() {
