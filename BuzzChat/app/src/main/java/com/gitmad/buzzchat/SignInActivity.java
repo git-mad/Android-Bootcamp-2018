@@ -44,7 +44,7 @@ public class SignInActivity extends AppCompatActivity {
                 .requestEmail()
                 .build();
 
-        /* TODO 18: Follow the tutorial here to finish the login with Google sign-in. Dependencies
+        /* TODO 18b: Follow the tutorial here to finish the login with Google sign-in. Dependencies
          * are taken care of for you.
          * https://developers.google.com/identity/sign-in/android/sign-in
          */
@@ -98,7 +98,6 @@ public class SignInActivity extends AppCompatActivity {
     private void firebaseAuthWithGoogle(GoogleSignInAccount acct) {
         Log.d(TAG, "firebaseAuthWithGoogle:" + acct.getId());
 
-        // TODO [GITMAD]: The account id token is null but I don't know why
         AuthCredential credential = GoogleAuthProvider.getCredential(acct.getIdToken(), null);
         mAuth.signInWithCredential(credential)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {

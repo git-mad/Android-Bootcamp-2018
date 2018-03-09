@@ -13,6 +13,8 @@
 
         </activity>
         <activity android:name=".SignInActivity">
+            <!-- TODO 18a: Make SignInActivity the launcher activity.
+                 Hint: Look at the child element of <MessageActivity> -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
