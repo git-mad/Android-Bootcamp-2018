@@ -47,6 +47,13 @@ public class SignInActivity extends AppCompatActivity {
         /* TODO 18b: Follow the tutorial here to finish the login with Google sign-in. Dependencies
          * are taken care of for you.
          * https://developers.google.com/identity/sign-in/android/sign-in
+         *
+         * When you're done, you'll be able to see your Google account as a user. Go to
+         * https://firebase.google.com/ and log in with these credentials to view the Firebase
+         * Console:
+         *
+         * username: gitmad2443
+         * password: Android2443
          */
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
         mSignInButton = findViewById(R.id.sign_in_button);
@@ -108,6 +115,8 @@ public class SignInActivity extends AppCompatActivity {
                             Log.d(TAG, "signInWithCredential:success");
                             FirebaseUser user = mAuth.getCurrentUser();
                             Intent intent = new Intent(SignInActivity.this, MessageActivity.class);
+                            // TODO 20: Pass the display name as an intent extra. We'll use this as a "username"
+                            intent.putExtra("username", user.getDisplayName());
                             startActivity(intent);
                             finish();
                         } else {

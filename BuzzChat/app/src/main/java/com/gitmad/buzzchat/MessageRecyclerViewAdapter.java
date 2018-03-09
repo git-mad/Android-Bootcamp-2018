@@ -42,6 +42,7 @@ public class MessageRecyclerViewAdapter extends RecyclerView.Adapter<MessageRecy
         holder.mItem = mValues.get(position);
         holder.mMessageTextView.setText(mValues.get(position).mMessageText);
         holder.mUserImageView.setImageDrawable(mValues.get(position).mUserImage);
+        holder.mUserNameTextView.setText(mValues.get(position).mUserName);
     }
 
     @Override
@@ -65,6 +66,7 @@ public class MessageRecyclerViewAdapter extends RecyclerView.Adapter<MessageRecy
         public final View mView;
         public final ImageView mUserImageView;
         public final TextView mMessageTextView;
+        public final TextView mUserNameTextView;
         public MessageItem mItem;
 
         public ViewHolder(View view) {
@@ -72,8 +74,9 @@ public class MessageRecyclerViewAdapter extends RecyclerView.Adapter<MessageRecy
             // TODO 10: Initialize the instance data from #9a only. The message items are generated
             // in a different way
             mView = view;
-            mUserImageView = view.findViewById(R.id.message_image_view);
-            mMessageTextView = view.findViewById(R.id.message_text_view);
+            mUserImageView = view.findViewById(R.id.message_user_image_view);
+            mMessageTextView = view.findViewById(R.id.message_text_text_view);
+            mUserNameTextView = view.findViewById(R.id.message_user_name);
         }
 
         // TODO 11: Override the toString method so it returns the

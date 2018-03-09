@@ -3,6 +3,7 @@ package com.gitmad.buzzchat;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
@@ -30,6 +31,11 @@ public class MessageFragment extends Fragment {
     private EditText mTextBox;
     private Button mSendButton;
     private MessageRecyclerViewAdapter mAdapter;
+    private String mUserName;
+
+    // TODO 19a: Initialize Firebase reference
+    private FirebaseDatabase mFirebaseRef;
+    private DatabaseReference mDatabaseRef;
 
     private static final String MESSAGES_CHILD = "messages";
 
@@ -57,9 +63,16 @@ public class MessageFragment extends Fragment {
 
         if (getArguments() != null) {
             mColumnCount = getArguments().getInt(ARG_COLUMN_COUNT);
+            // TODO 20: Unpack the bundle and initialize mUserName
+            mUserName = getArguments().getString("username");
+
         }
         // TODO 17a: Initialize mAdapter to a new MessageRecyclerViewAdapter
         mAdapter = new MessageRecyclerViewAdapter(Messages.ITEMS);
+
+        // TODO 19b: Initialize the variables from 19a
+        mFirebaseRef = FirebaseDatabase.getInstance();
+        mDatabaseRef = mFirebaseRef.getReference();
     }
 
     @Override
@@ -89,13 +102,26 @@ public class MessageFragment extends Fragment {
          * 3. Notify mAdapter that it's data set has changed so it can update the list with the new
          * message.
          */
+
+
         mSendButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String messageText = mTextBox.getText().toString();
                 if (!messageText.isEmpty()) {
-                    Drawable image = getResources().getDrawable(R.drawable.default_user_image);
-                    Messages.addMessageItem(messageText, image);
+                    Drawable image = getResources().getDrawable(R.drawable.default_user_image2);
+                    // TODO 20: Now that we have the username, make sure to use it in the messages
+                    // list too so we don't have anonymous users.
+                    Messages.addMessageItem(mUserName, messageText, image);
+                    /*
+                     * TODO 19c: Push new messages to the "messages" child of your database instance
+                     * 1. Create a new MessageItem from the mTextBox text (you can pass null for the image)
+                     * 2. Get the reference to the messages child and push the new value
+                     * 3. Run the app and check the Firebase console to see your messages saved
+                     */
+                    mDatabaseRef.child(MESSAGES_CHILD).push().setValue(
+                            new Messages.MessageItem(mUserName, messageText, null));
+
                     mTextBox.setText("");
                     mAdapter.notifyDataSetChanged();
                 }

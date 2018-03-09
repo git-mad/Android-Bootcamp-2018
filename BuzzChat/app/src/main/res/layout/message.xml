@@ -22,7 +22,7 @@
          want "sym_def_app_icon". Make sure the width and height wrap content. -->
 
         <ImageView
-            android:id="@+id/message_image_view"
+            android:id="@+id/message_user_image_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -40,20 +40,27 @@
             android:layout_gravity="center_vertical"
             android:orientation="vertical">
 
-            <!-- TODO 5b: Insert a TextView here and set it's ID. Make sure the width and height
+            <!-- TODO 20: Insert a TextView here for the user's name and set its ID -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="10"
+                android:id="@+id/message_user_name" />
+
+            <!-- TODO 5b: Insert a TextView here and set its ID. Make sure the width and height
              wrap content. -->
             <TextView
-                android:id="@+id/message_text_view"
+                android:id="@+id/message_text_text_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginTop="8dp"
                 android:layout_weight="10"
-                app:layout_constraintBottom_toBottomOf="@+id/message_image_view"
+                app:layout_constraintBottom_toBottomOf="@+id/message_user_image_view"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/message_image_view"
-                app:layout_constraintTop_toTopOf="@+id/message_image_view" />
+                app:layout_constraintStart_toEndOf="@+id/message_user_image_view"
+                app:layout_constraintTop_toTopOf="@+id/message_user_image_view" />
         </LinearLayout>
 
 

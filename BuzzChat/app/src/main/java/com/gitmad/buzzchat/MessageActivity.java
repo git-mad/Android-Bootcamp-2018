@@ -39,6 +39,12 @@ public class MessageActivity extends AppCompatActivity {
 
             if (todoComplete){
                 fragment = new MessageFragment();
+                //TODO 20: Get the username from the Intent that got you here and put the username
+                // into a Bundle. Then set the fragment arguments to that bundle.
+                String username = getIntent().getStringExtra("username");
+                Bundle bundle = new Bundle();
+                bundle.putString("username", username);
+                fragment.setArguments(bundle);
             }
             transaction.replace(R.id.activity_message_fragment_frame, fragment);
             transaction.commit();

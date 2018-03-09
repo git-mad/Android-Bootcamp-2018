@@ -20,8 +20,13 @@ public class Messages {
     private static final int COUNT = 25;
 
     public static void addMessageItem(String text, Drawable image) {
+        addMessageItem("Anonymous", text, image);
+
+    }
+
+    public static void addMessageItem(String username, String text, Drawable image) {
         // TODO 8b: This method should add a single message item to your list
-        ITEMS.add(new MessageItem(text, image));
+        ITEMS.add(new MessageItem(username, text, image));
     }
 
 
@@ -40,16 +45,22 @@ public class Messages {
 
     /*
      * TODO 7: Create a static inner class to represent a single message item. It needs to have
-     * final instance data for the message's content and user image
+     * final instance data for the message's content, user image, and username
      */
+
     public static class MessageItem {
         public final String mMessageText;
         public final Drawable mUserImage;
 
-        public MessageItem(String messageText, Drawable userImage) {
+        public final String mUserName;
+
+        public MessageItem(String username, String messageText, Drawable userImage) {
+            mUserName = username;
             mMessageText = messageText;
             mUserImage = userImage;
         }
+
+
 
         @Override
         public String toString() {
