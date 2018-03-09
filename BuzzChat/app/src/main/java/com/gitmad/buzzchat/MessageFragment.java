@@ -15,8 +15,15 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * A fragment representing a list of Items.
@@ -63,7 +70,7 @@ public class MessageFragment extends Fragment {
 
         if (getArguments() != null) {
             mColumnCount = getArguments().getInt(ARG_COLUMN_COUNT);
-            // TODO 20: Unpack the bundle and initialize mUserName
+            // TODO 20d: Unpack the bundle and initialize mUserName
             mUserName = getArguments().getString("username");
 
         }
@@ -72,7 +79,41 @@ public class MessageFragment extends Fragment {
 
         // TODO 19b: Initialize the variables from 19a
         mFirebaseRef = FirebaseDatabase.getInstance();
-        mDatabaseRef = mFirebaseRef.getReference();
+        mDatabaseRef = mFirebaseRef.getReference(MESSAGES_CHILD);
+
+        // TODO 21a: Add a child event listener so we can update our messages list when there is a
+        // new message.
+        mDatabaseRef.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                HashMap<String, String> map = (HashMap) dataSnapshot.getValue();
+                String text =  map.get("mMessageText");
+                String username = map.get("mUserName");
+                Drawable image = getResources().getDrawable(R.drawable.default_user_image2, null);
+                Messages.addMessageItem(new Messages.MessageItem(username, text, image));
+                mAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
     }
 
     @Override
@@ -110,16 +151,18 @@ public class MessageFragment extends Fragment {
                 String messageText = mTextBox.getText().toString();
                 if (!messageText.isEmpty()) {
                     Drawable image = getResources().getDrawable(R.drawable.default_user_image2);
-                    // TODO 20: Now that we have the username, make sure to use it in the messages
+                    // TODO 20e: Now that we have the username, make sure to use it in the messages
                     // list too so we don't have anonymous users.
-                    Messages.addMessageItem(mUserName, messageText, image);
+
+                    //TODO 21b: Remove the addMessageItem line since we do it in 21b
+
                     /*
                      * TODO 19c: Push new messages to the "messages" child of your database instance
                      * 1. Create a new MessageItem from the mTextBox text (you can pass null for the image)
                      * 2. Get the reference to the messages child and push the new value
                      * 3. Run the app and check the Firebase console to see your messages saved
                      */
-                    mDatabaseRef.child(MESSAGES_CHILD).push().setValue(
+                    mDatabaseRef.push().setValue(
                             new Messages.MessageItem(mUserName, messageText, null));
 
                     mTextBox.setText("");

@@ -40,7 +40,7 @@
             android:layout_gravity="center_vertical"
             android:orientation="vertical">
 
-            <!-- TODO 20: Insert a TextView here for the user's name and set its ID -->
+            <!-- TODO 20a: Insert a TextView here for the user's name and set its ID -->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

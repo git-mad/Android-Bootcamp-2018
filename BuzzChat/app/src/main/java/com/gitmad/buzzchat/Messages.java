@@ -21,12 +21,15 @@ public class Messages {
 
     public static void addMessageItem(String text, Drawable image) {
         addMessageItem("Anonymous", text, image);
-
     }
 
     public static void addMessageItem(String username, String text, Drawable image) {
+        addMessageItem(new MessageItem(username, text, image));
+    }
+
+    public static void addMessageItem(MessageItem messageItem) {
         // TODO 8b: This method should add a single message item to your list
-        ITEMS.add(new MessageItem(username, text, image));
+        ITEMS.add(messageItem);
     }
 
 
@@ -53,6 +56,12 @@ public class Messages {
         public final Drawable mUserImage;
 
         public final String mUserName;
+
+        public MessageItem() {
+            mMessageText = "Default";
+            mUserName = "Anonymous";
+            mUserImage = null;
+        }
 
         public MessageItem(String username, String messageText, Drawable userImage) {
             mUserName = username;

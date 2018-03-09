@@ -39,7 +39,7 @@ public class MessageActivity extends AppCompatActivity {
 
             if (todoComplete){
                 fragment = new MessageFragment();
-                //TODO 20: Get the username from the Intent that got you here and put the username
+                //TODO 20c: Get the username from the Intent that got you here and put the username
                 // into a Bundle. Then set the fragment arguments to that bundle.
                 String username = getIntent().getStringExtra("username");
                 Bundle bundle = new Bundle();

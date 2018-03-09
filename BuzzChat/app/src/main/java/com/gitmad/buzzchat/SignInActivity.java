@@ -115,7 +115,7 @@ public class SignInActivity extends AppCompatActivity {
                             Log.d(TAG, "signInWithCredential:success");
                             FirebaseUser user = mAuth.getCurrentUser();
                             Intent intent = new Intent(SignInActivity.this, MessageActivity.class);
-                            // TODO 20: Pass the display name as an intent extra. We'll use this as a "username"
+                            // TODO 20b: Pass the display name as an intent extra. We'll use this as a "username"
                             intent.putExtra("username", user.getDisplayName());
                             startActivity(intent);
                             finish();
