@@ -39,23 +39,6 @@
 
         <!-- TODO 16a: put the EditText and Button here (see the 16a in activity_message.xml) -->
 
-        <EditText
-            android:id="@+id/fragment_message_textbox"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ems="10"
-            android:hint="Enter text"
-            android:inputType="textPersonName"
-            android:visibility="visible" />
-
-        <Button
-            android:id="@+id/fragment_message_send_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Send"
-            android:visibility="visible" />
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>
 

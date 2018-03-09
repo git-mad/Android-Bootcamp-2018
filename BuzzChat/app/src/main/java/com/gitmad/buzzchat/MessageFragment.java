@@ -40,9 +40,7 @@ public class MessageFragment extends Fragment {
     private MessageRecyclerViewAdapter mAdapter;
     private String mUserName;
 
-    // TODO 19a: Initialize Firebase reference
-    private FirebaseDatabase mFirebaseRef;
-    private DatabaseReference mDatabaseRef;
+    // TODO 19a: Declare FirebaseDatabse reference and DatabaseReference
 
     private static final String MESSAGES_CHILD = "messages";
 
@@ -71,49 +69,17 @@ public class MessageFragment extends Fragment {
         if (getArguments() != null) {
             mColumnCount = getArguments().getInt(ARG_COLUMN_COUNT);
             // TODO 20d: Unpack the bundle and initialize mUserName
-            mUserName = getArguments().getString("username");
+
 
         }
         // TODO 17a: Initialize mAdapter to a new MessageRecyclerViewAdapter
-        mAdapter = new MessageRecyclerViewAdapter(Messages.ITEMS);
+
 
         // TODO 19b: Initialize the variables from 19a
-        mFirebaseRef = FirebaseDatabase.getInstance();
-        mDatabaseRef = mFirebaseRef.getReference(MESSAGES_CHILD);
 
         // TODO 21a: Add a child event listener so we can update our messages list when there is a
         // new message.
-        mDatabaseRef.addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                HashMap<String, String> map = (HashMap) dataSnapshot.getValue();
-                String text =  map.get("mMessageText");
-                String username = map.get("mUserName");
-                Drawable image = getResources().getDrawable(R.drawable.default_user_image2, null);
-                Messages.addMessageItem(new Messages.MessageItem(username, text, image));
-                mAdapter.notifyDataSetChanged();
-            }
 
-            @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {
-
-            }
-
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
     }
 
     @Override
@@ -126,8 +92,6 @@ public class MessageFragment extends Fragment {
         Log.d("MessageFragment", "RecyclerView Init");
         // TODO 17b: Initialize mTextBox and mSendButton. This will be similar to what you did in #2
         // and #3, but you'll need to use the "view" variable here.
-        mTextBox = view.findViewById(R.id.fragment_message_textbox);
-        mSendButton = view.findViewById(R.id.fragment_message_send_button);
 
         if (mColumnCount <= 1) {
             recyclerView.setLayoutManager(new LinearLayoutManager(context));
@@ -136,7 +100,7 @@ public class MessageFragment extends Fragment {
         }
 
         /*
-         * TODO 17c: Modify the button's onClick method so clicking it adds a new message to your
+         * TODO 17c: Modify the send button's onClick method so clicking it adds a new message to your
          * message list rather than modify the old TextView which should be removed by now.
          * 1. Add a add a message item to your list in Messages.java
          * 2. Make sure the mTextBox resets (Hint: empty string is useful here)
@@ -162,8 +126,6 @@ public class MessageFragment extends Fragment {
                      * 2. Get the reference to the messages child and push the new value
                      * 3. Run the app and check the Firebase console to see your messages saved
                      */
-                    mDatabaseRef.push().setValue(
-                            new Messages.MessageItem(mUserName, messageText, null));
 
                     mTextBox.setText("");
                     mAdapter.notifyDataSetChanged();

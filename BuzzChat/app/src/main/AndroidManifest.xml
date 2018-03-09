@@ -10,16 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MessageActivity">
-
-        </activity>
-        <activity android:name=".SignInActivity">
-            <!-- TODO 18a: Make SignInActivity the launcher activity.
-                 Hint: Look at the child element of <MessageActivity> -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".SignInActivity">
+            <!-- TODO 18a: Make SignInActivity the launcher activity.
+                 Hint: Look at the child element of <MessageActivity> -->
         </activity>
     </application>
 

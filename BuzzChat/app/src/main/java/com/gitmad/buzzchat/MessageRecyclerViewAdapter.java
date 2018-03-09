@@ -12,7 +12,7 @@ import com.gitmad.buzzchat.Messages.MessageItem;
 import java.util.List;
 
 /**
- * {@link RecyclerView.Adapter} that can display a {@link MessageItem}
+ * {@link RecyclerView.Adapter} that can display a MessageItem
  */
 public class MessageRecyclerViewAdapter extends RecyclerView.Adapter<MessageRecyclerViewAdapter.ViewHolder> {
 
@@ -25,11 +25,11 @@ public class MessageRecyclerViewAdapter extends RecyclerView.Adapter<MessageRecy
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         /*
-         * TODO 12: Inflate the layout that displays a message. Once you have the view from the
-         * inflater, create a new ViewHolder based on that view and return it.
+         * TODO 12a: Inflate the layout that displays a message. Once you have the view from the
+         * inflater, create a new ViewHolder based on that view and return it. Replace null with the
+         * appropriate code
          */
-        View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.message, parent, false);
+        View view = null;
         return new ViewHolder(view);
     }
 
@@ -38,11 +38,12 @@ public class MessageRecyclerViewAdapter extends RecyclerView.Adapter<MessageRecy
         /*
          * Once the ViewHolder is created, the RecyclerView initializes each message item in the
          * mValues list. The index of mValues corresponds to the position in your RecyclerView list.
+         * TODO 12b: Uncomment the code below
          */
-        holder.mItem = mValues.get(position);
-        holder.mMessageTextView.setText(mValues.get(position).mMessageText);
-        holder.mUserImageView.setImageDrawable(mValues.get(position).mUserImage);
-        holder.mUserNameTextView.setText(mValues.get(position).mUserName);
+//        holder.mItem = mValues.get(position);
+//        holder.mMessageTextView.setText(mValues.get(position).mMessageText);
+//        holder.mUserImageView.setImageDrawable(mValues.get(position).mUserImage);
+//        holder.mUserNameTextView.setText(mValues.get(position).mUserName);
     }
 
     @Override
@@ -63,26 +64,13 @@ public class MessageRecyclerViewAdapter extends RecyclerView.Adapter<MessageRecy
          * TODO 9b: Create instance data for your message item (not final)
          */
 
-        public final View mView;
-        public final ImageView mUserImageView;
-        public final TextView mMessageTextView;
-        public final TextView mUserNameTextView;
-        public MessageItem mItem;
-
         public ViewHolder(View view) {
             super(view);
             // TODO 10: Initialize the instance data from #9a only. The message items are generated
             // in a different way
-            mView = view;
-            mUserImageView = view.findViewById(R.id.message_user_image_view);
-            mMessageTextView = view.findViewById(R.id.message_text_text_view);
-            mUserNameTextView = view.findViewById(R.id.message_user_name);
         }
 
-        // TODO 11: Override the toString method so it returns the
-        @Override
-        public String toString() {
-            return super.toString() + " '" + mMessageTextView.getText() + "'";
-        }
+        // TODO 11 (Optional): Override the toString method so it returns the message text
+
     }
 }
